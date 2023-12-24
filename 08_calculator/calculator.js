@@ -2,24 +2,29 @@ const add = function(...theArgs) {
   return theArgs.reduce((sum, current) => sum + current, 0);
 };
 
-const subtract = function() {
-	
+const subtract = function(...theArgs) {
+	return Number(theArgs.reduce((sum, current) => sum - current));
 };
 
-const sum = function() {
-	
+const sum = function(...theArgs) {
+  let flattened = [].concat.apply([], theArgs);
+  return flattened.length === 0 ? 0	: Number(flattened.reduce((sum, current) => sum += current, 0));
 };
 
-const multiply = function() {
-
+const multiply = function(...theArgs) {
+  let flattened = [].concat.apply([], theArgs);
+  return flattened.length === 0 ? 0 : Number(flattened.reduce((product, current) => (product * current)));
 };
 
-const power = function() {
-	
+const power = function(...theArgs) {
+	let flattened = [].concat.apply([], theArgs);
+  return flattened.length === 0 ? 0 : Number(flattened.reduce((base, power) => base ** power));
 };
 
-const factorial = function() {
-	
+const factorial = function(num) {
+  let arrayRange = Array.from({length: (num - 0)}, (value, index) => 1 + index);
+  return num === 0 ? 1 :
+    arrayRange.reduce((product, current) => (product * current));
 };
 
 // Do not edit below this line
